@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashank Mohan Pandey - Link Tree</title>
+    <meta name="description" content="Connect with Shashank Mohan Pandey">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #9333ea, #ec4899, #3b82f6);
+            background-size: 400% 400%;
+            animation: gradient-xy 15s ease infinite;
+        }
+
+        @keyframes gradient-xy {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        .container {
+            max-width: 42rem;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .profile-section h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .bio-card {
+            backdrop-filter: blur(16px);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .bio-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .links-section {
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.2s forwards;
+        }
+
+        .contact-section {
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.4s forwards;
+        }
+
+        .link-card {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(16px);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+
+        .link-card-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .link-title {
+            color: white;
+            font-weight: 500;
+        }
+
+        .link-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: white;
+        }
+
+        /* Hover effects for each platform */
+        .link-card.instagram:hover {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+        }
+
+        .link-card.facebook:hover {
+            background-color: #2563eb;
+        }
+
+        .link-card.linkedin:hover {
+            background-color: #1d4ed8;
+        }
+
+        .link-card.snapchat:hover {
+            background-color: #facc15;
+        }
+
+        .link-card.email:hover {
+            background-color: #ef4444;
+        }
+
+        .link-card.whatsapp:hover {
+            background-color: #22c55e;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .link-card:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease 0.6s forwards;
+        }
+
+        .footer-content {
+            backdrop-filter: blur(16px);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="profile-section">
+            <h1>Shashank Mohan Pandey</h1>
+            <div class="bio-card">
+                <p>Born on July 29, 2003, in Chandauli- Uttar Pradesh, currently residing in Maihar, Madhya Pradesh. 
+                   Final-year B.Pharmacy student at AKS University with a passion for healthcare and medicine. 
+                   Enjoys meaningful conversations and continuous learning.</p>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h2 class="section-title">Social Media Links </h2>
+            <div id="socialLinks"></div>
+        </div>
+
+        <div class="contact-section">
+            <h2 class="section-title">Want to Chat? </h2>
+            <div id="contactLinks"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© <span id="currentYear"></span> Shashank Mohan Pandey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const socialLinks = [
+            {
+                title: 'Instagram',
+                url: 'https://www.instagram.com/mm_shashank/profilecard/?igsh=MWEyY3cwYng0NGU1cw',
+                icon: 'fa-instagram',
+                class: 'instagram'
+            },
+            {
+                title: 'Facebook',
+                url: 'https://www.facebook.com/profile.php?id=100061568911063',
+                icon: 'fa-facebook',
+                class: 'facebook'
+            },
+            {
+                title: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/shashank-mohan-pandey-5183b0312',
+                icon: 'fa-linkedin',
+                class: 'linkedin'
+            },
+            {
+                title: 'Snapchat',
+                url: 'https://www.snapchat.com/add/shashank_pa7119?share_id=KXGKtFPYGxo&locale=en-US',
+                icon: 'fa-snapchat',
+                class: 'snapchat'
+            }
+        ];
+
+        const contactLinks = [
+            {
+                title: 'Email',
+                url: 'mailto:shashankmohanp@gmail.com',
+                icon: 'fa-envelope',
+                class: 'email'
+            },
+            {
+                title: 'WhatsApp',
+                url: 'https://wa.link/80v7cn',
+                icon: 'fa-whatsapp',
+                class: 'whatsapp'
+            }
+        ];
+
+        function createLinkCard(link, index) {
+            const card = document.createElement('a');
+            card.href = link.url;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+            card.className = `link-card ${link.class}`;
+            card.style.animation = `fadeIn 0.3s ease ${index * 0.1}s forwards`;
+
+            card.innerHTML = `
+                <div class="link-card-content">
+                    <span class="link-title">${link.title}</span>
+                    <i class="fa-brands ${link.icon} link-icon"></i>
+                </div>
+            `;
+
+            return card;
+        }
+
+        document.getElementById('socialLinks').append(
+            ...socialLinks.map((link, index) => createLinkCard(link, index))
+        );
+
+        document.getElementById('contactLinks').append(
+            ...contactLinks.map((link, index) => createLinkCard(link, index))
+        );
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
